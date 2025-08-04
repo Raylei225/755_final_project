@@ -1,0 +1,100 @@
+---
+title: "data_cleaning"
+author: "Will Yin" 
+format: 
+  html:
+    toc: true 
+    toc_depth: 4
+    embed-resources: true
+---
+
+## Introduction
+
+This notebook serves the role of transferring our existing time-series data to the format compatible with our existing deep-learning neural network pipeline. The major transformation is changing time-series dataset from long format to wide format by calculating the differences in outcome variable and key features between 09/01/2013 and 09/01/2023. For features (urban population and rural population percentages) that did not vary in this time period, values on 09/01/2023 was taken into the final dataset. The data dictionary for final dataset will be presented at the end of this notebook.
+
+## Load Pacakges
+
+```{r}
+library(tidyverse)
+library(skimr)
+library(lubridate)
+```
+```{r}
+path_data <- "data"
+```
+
+## Read in data
+
+This data was already cleanned and congregated beforehand in our previous work. Please contact us if you want access to raw datasets and pipelines used to process these original data.
+
+```{r}
+data <- read_csv(here::here(path_data, "data_labeled.csv"),
+                     col_types = cols())|>
+  janitor::clean_names("snake") |> 
+  glimpse()
+```
+```{r}
+skim(data)
+```
+### Get rid of August data in 2013
+```{r}
+head(data$date)
+```
+```{r}
+d_filtered <- data %>%
+  filter(date >= as.Date("2013-09-01"))
+```
+```{r}
+d_filtered |> glimpse()
+```
+```{r}
+columns_2023 <- d_filtered %>%
+  filter(date == as.Date("2023-09-01")) %>%
+  select(state, urban_pop_percent, rural_pop_percent)
+```
+
+
+
+### Change to wide format
+```{r}
+df_wide <- d_filtered %>%
+  filter(date %in% c(as.Date("2013-09-01"), as.Date("2023-09-01"))) %>%
+  group_by(state) %>%  
+  arrange(date) %>%
+  summarise(
+    total_diff = last(totals) - first(totals),
+    gtrend_diff = last(gtrend) - first(gtrend),
+    pop_diff = last(population) - first(population),
+    pov_diff = last(percent_in_poverty) - first(percent_in_poverty),
+    income_diff = last(median_income) - first(median_income),
+    unemployed_diff = last(percent_of_unemployed_poulation) - first(percent_of_unemployed_poulation),
+    .groups = "drop"
+  )
+```
+
+### Finalize the final dataset
+```{r}
+final_df <- df_wide %>%
+  left_join(columns_2023, by = "state")
+```
+```{r}
+final_df <- final_df %>%
+  mutate(label = ifelse(total_diff > 0, "positive", "negative"))
+```
+
+### Output the cleanned dataset
+```{r}
+write.csv(final_df, "NN_wide_data.csv")
+```
+
+**Data Dictionary:**
+
+- `total_diff`: the difference in the state-level background check number (NICS) of firearm
+- `gtrend_diff`: the difference in Google trends search volumes
+- `pop_diff`: the difference in the state-level total population
+- `pov_diff`: the difference in the state-level poverty rate
+- `income_diff`: the difference in the state-level median income
+- `unemployed_diff`: the difference in the percentage of unemployed population
+- `urban_pop_percent`: the percentage of urbane population
+- `rural_pop_percent`: the percentage of rural population
+- `label`: label indicating if total_diff increased or decreased between 09/01/2013 and 09/01/2023
