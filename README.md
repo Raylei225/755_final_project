@@ -60,6 +60,6 @@ This project only used publicly accessible data from government agencies, includ
 <br>
 * Debugging: the current codes are not bug-free. Warnings in `RNN.ipynb` and 0% accuracy in `neural_network.ipynb` both suggests the potential occurence of silent errors that could also deteriorate our prediction. 
 <br>
-
 * The target variable used the number of people who went through a background check every month as a proxy. Which may not represent the number of people who purchased the weapon since one person could purchase more than one weapon for their families or purchase a weapon from the secondary market/gun shows.
+
 
