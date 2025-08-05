@@ -7,7 +7,7 @@
 
 ## What's This About?
 
-This repository contains the final project for course of PSYCH-755: Environments and Tools for Large-scale Behavioral Data Science at University of Wisconsin at Madison. The project focuses on predicting state-level NICS of firearm, which serves as the proxy of firearm sale trend, using neural network. Two types of neural network were applied in this project: long short term memory (LSTM) of recurrent neural network and customized deep learning neural network (in progress), the latter of which contains our focal predictor Google search trend (gtrend) and multiple other features.
+This repository contains the final project for course of PSYCH-755: Environments and Tools for Large-scale Behavioral Data Science at University of Wisconsin at Madison. The project focuses on predicting state-level National Instant Criminal Background Check System (NICS) of firearm, which serves as the proxy of firearm sale trend, using neural network. Two types of neural network were applied in this project: long short term memory (LSTM) of recurrent neural network and customized deep learning neural network (in progress), the latter of which contains our focal predictor Google search trend (gtrend) and multiple other features.
 
 ## User Notice
 
@@ -67,6 +67,7 @@ This project only used publicly accessible data from government agencies, includ
 <be>
 
 * The target variable used the number of people who went through a background check every month as a proxy. Which may not represent the number of people who purchased the weapon since one person could purchase more than one weapon for their families or purchase a weapon from the secondary market/gun shows.
+
 
 
 
