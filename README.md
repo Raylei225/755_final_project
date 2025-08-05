@@ -24,23 +24,31 @@ This markdown file contains codes for transferring our congregated time series d
 This file contains codes for building and applying deep learning neural network onto our wide format of data (`NN_wide_data.csv`). However, this file is still in progress of polishing as our data is not yet perfectly compatible with the current pipeline, resulting in a performance of 0 accuracy. We may consider using different pipelines or built of neural network in the future as the current one was originally used for visual learning.
 
 ## Data
-This project only used public accesible data from government agency including data from 2013-9 to 2023-8.
+This project only used publicly accessible data from government agencies, including data from 2013-9 to 2023-8.
 ### Target variable
 
 <img src="Image/NICS-Logo_190104_102706.png" width="600" height="300">
 
-`totals`: Total number of individuals gone through the FBI national instant criminal background check system(NICS).
+`totals`: Total number of individuals who have gone through the FBI National Instant Criminal Background Check System (NICS)
+
 ### Features
 `state`: The state of this data collected
-`gtrend`: The google trend data of the state
-`date`: The data are collected by month, this column shows the month of the data was collected in year-month-day format
+
+`gtrend`: The Google trend data of the state
+
+`date`: The data are collected by month; this column shows the month of the data collection in year-month-day format
+
 `urban_pop_percent`: the percentage of urban population in the state
+
 `rural_pop_percent`: the percentage of rural population in the state
+
 `population`: The entire population of the state
-`percent_in_poverty`: The percentage of poverty population
+
+`percent_in_poverty`: The percentage of the poverty population
+
 `Median_income`: The median income of the state
-`partisan_index_dem`: The propotion of population who vote for democratic party in the last two-year election.
-`partisan_index_rep`: The propotion of population who vote for republican party in the last two-year election.
+`partisan_index_dem`: The proportion of the population who vote for the democratic party in the last two-year election.
+`partisan_index_rep`: The proportion of the population who voted for the republican party in the last two-year election.
 `percent_of_unemployed_poulation`: The percentage of unemployed population in the state
 
 
@@ -53,4 +61,5 @@ This project only used public accesible data from government agency including da
 * Debugging: the current codes are not bug-free. Warnings in `RNN.ipynb` and 0% accuracy in `neural_network.ipynb` both suggests the potential occurence of silent errors that could also deteriorate our prediction. 
 <br>
 
-* The target variable used the number of people who gone through background check every month as a proxy. Which might not able to entirely represent the number of people purchased the weapon since one person could purchase more than one weapon for their families or purchase weapon from the secondary market/gun shows.
+* The target variable used the number of people who went through a background check every month as a proxy. Which may not represent the number of people who purchased the weapon since one person could purchase more than one weapon for their families or purchase a weapon from the secondary market/gun shows.
+
