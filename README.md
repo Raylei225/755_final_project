@@ -47,8 +47,11 @@ This project only used publicly accessible data from government agencies, includ
 `percent_in_poverty`: The percentage of the poverty population
 
 `Median_income`: The median income of the state
-`partisan_index_dem`: The proportion of the population who vote for the democratic party in the last two-year election.
+
+`partisan_index_dem`: The proportion of the population who voted for the democratic party in the last two-year election.
+
 `partisan_index_rep`: The proportion of the population who voted for the republican party in the last two-year election.
+
 `percent_of_unemployed_poulation`: The percentage of unemployed population in the state
 
 
@@ -64,6 +67,7 @@ This project only used publicly accessible data from government agencies, includ
 <be>
 
 * The target variable used the number of people who went through a background check every month as a proxy. Which may not represent the number of people who purchased the weapon since one person could purchase more than one weapon for their families or purchase a weapon from the secondary market/gun shows.
+
 
 
 
