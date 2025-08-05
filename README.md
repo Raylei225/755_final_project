@@ -1,6 +1,6 @@
 <h1 align="center">755 Final Project: State-level Firearm Trend Prediction</h1>
 <div align="center">   
-    <img src="image/FirearmTrendLogo.png" alt="Logo" width="200" height="200">
+    <img src="Image/FirearmTrendLogo.png" alt="Logo" width="200" height="200">
     <h5> Contributors </h5>
     <p> Yuyang Shen, Will Yin</p>
 </div>
@@ -27,7 +27,7 @@ This file contains codes for building and applying deep learning neural network 
 This project only used public accesible data from government agency including data from 2013-9 to 2023-8.
 ### Target variable
 
-<img src="image/NICS-Logo_190104_102706.png" width="600" height="300">
+<img src="Image/NICS-Logo_190104_102706.png" width="600" height="300">
 
 `totals`: Total number of individuals gone through the FBI national instant criminal background check system(NICS).
 ### Features
@@ -52,4 +52,5 @@ This project only used public accesible data from government agency including da
 <br>
 * Debugging: the current codes are not bug-free. Warnings in `RNN.ipynb` and 0% accuracy in `neural_network.ipynb` both suggests the potential occurence of silent errors that could also deteriorate our prediction. 
 <br>
+
 * The target variable used the number of people who gone through background check every month as a proxy. Which might not able to entirely represent the number of people purchased the weapon since one person could purchase more than one weapon for their families or purchase weapon from the secondary market/gun shows.
