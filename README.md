@@ -24,35 +24,36 @@ This markdown file contains codes for transferring our congregated time series d
 This file contains codes for building and applying deep learning neural network onto our wide format of data (`NN_wide_data.csv`). However, this file is still in progress of polishing as our data is not yet perfectly compatible with the current pipeline, resulting in a performance of 0 accuracy. We may consider using different pipelines or built of neural network in the future as the current one was originally used for visual learning.
 
 ## Data
-This project only used publicly accessible data from government agencies, including data from 2013-9 to 2023-8.
+This project only used publicly accessible data from government agencies, private companies, or research institutes,  including data from 2013-9 to 2023-8.
 ### Target variable
 
 <img src="Image/NICS-Logo_190104_102706.png" width="600" height="300">
 
-`totals`: Total number of individuals who have gone through the FBI National Instant Criminal Background Check System (NICS)
+`totals`: Total number of individuals who have gone through the FBI National Instant Criminal Background Check System (NICS), data collected from FBI, NICS
+https://www.fbi.gov/file-repository/cjis/nics_firearm_checks_-_month_year_by_state.pdf/view
 
 ### Features
-`state`: The state of this data collected
+`state`(factor): The state of this data collected
 
-`gtrend`: The Google trend data of the state
+`gtrend`(continues): The Google trend data of the state, data collected from https://trends.google.com/trends/
 
-`date`: The data are collected by month; this column shows the month of the data collection in year-month-day format
+`date`(date): The data are collected by month; this column shows the month of the data collection in year-month-day format
 
-`urban_pop_percent`: the percentage of urban population in the state
+`urban_pop_percent`(continues): the percentage of urban population in the state, data collected from https://www.census.gov/
 
-`rural_pop_percent`: the percentage of rural population in the state
+`rural_pop_percent`(continues): the percentage of rural population in the state, data collected from https://www.census.gov/
 
-`population`: The entire population of the state
+`population(continues)`: The entire population of the state, data collected from https://www.census.gov/
 
-`percent_in_poverty`: The percentage of the poverty population
+`percent_in_poverty`(continues): The percentage of the poverty population data collected from SAIPE https://www.census.gov/
 
-`Median_income`: The median income of the state
+`Median_income`(continues): The median income of the state data collected from SAIPE https://www.census.gov/
 
-`partisan_index_dem`: The proportion of the population who voted for the democratic party in the last two-year election.
+`partisan_index_dem`(continues): The proportion of the population who voted for the democratic party in the last two-year election, data collected from the University of Michigan icpsr, https://www.icpsr.umich.edu/sites/icpsr/home
 
-`partisan_index_rep`: The proportion of the population who voted for the republican party in the last two-year election.
+`partisan_index_rep`(continues): The proportion of the population who voted for the republican party in the last two-year election, data collected from the University of Michigan icpsr, https://www.icpsr.umich.edu/sites/icpsr/home
 
-`percent_of_unemployed_poulation`: The percentage of unemployed population in the state
+`percent_of_unemployed_poulation`(continues): The percentage of unemployed population in the state, data collected from U.S. Bureau of Labor Statistics, https://www.bls.gov/web/laus.supp.toc.htm
 
 
 ## Limitations & Contributions
@@ -67,6 +68,7 @@ This project only used publicly accessible data from government agencies, includ
 <be>
 
 * The target variable used the number of people who went through a background check every month as a proxy. Which may not represent the number of people who purchased the weapon since one person could purchase more than one weapon for their families or purchase a weapon from the secondary market/gun shows.
+
 
 
 
