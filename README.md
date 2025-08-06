@@ -7,7 +7,11 @@
 
 ## What's This About?
 
-This repository contains the final project for course of PSYCH-755: Environments and Tools for Large-scale Behavioral Data Science at University of Wisconsin at Madison. The project focuses on predicting state-level National Instant Criminal Background Check System (NICS) of firearm, which serves as the proxy of firearm sale trend, using neural network. Two types of neural network were applied in this project: long short term memory (LSTM) of recurrent neural network and customized deep learning neural network (in progress), the latter of which contains our focal predictor Google search trend (gtrend) and multiple other features.
+This repository contains the final project for course of PSYCH-755: Environments and Tools for Large-scale Behavioral Data Science at University of Wisconsin at Madison. This project aims to analyze, explain, and predict firearm sales trends between 2013 to 2023 in the United States using neural networks. By leveraging publicly available datasets and statistical methods, the project seeks to uncover patterns in firearm sales and provide data-driven insights into their underlying causes and future trajectories. We believe such understanding and prediction of state-level firearm trend would provide insights for policy makers and relevant organizations in situations of making gun-related decisions such as policy-making and funding allocation. 
+
+The outcome variable is National Instant Criminal Background Check System (NICS) of firearm, which serves as the proxy of firearm sale trend. Two types of neural network were applied in this project: long short term memory (LSTM) of recurrent neural network and customized deep learning neural network (in progress), the latter of which contains our focal predictor Google search trend (gtrend) and multiple other features.
+
+So far, the recurrent neural network depeding solely on NICS shows variant predictive performance across states while the customized deep learning neural network is still under construction.
 
 ## User Notice
 
